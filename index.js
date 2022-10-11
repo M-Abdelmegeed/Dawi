@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const path = require("path");
 const router = require("./routes/index.routes"); // used to handle routes
 const bodyParser=require('body-parser');
+const cors = require('cors')
 
 const app = express();
 const PORT = process.env.PORT || 8081;
@@ -15,6 +16,8 @@ app.use(router);
 app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`);
   });
+
+  app.use(cors());
 
 app.get('/', function (req, res) {
 res.send('Hello World');
