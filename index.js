@@ -17,9 +17,7 @@ app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`);
   });
   const corsOptions ={
-    origin:'http://localhost:3000', 
-    credentials:true,            //access-control-allow-credentials:true
-    optionSuccessStatus:200
+    origin:'https://e7gezli-frontapp.herokuapp.com', 
 }
 app.use(cors(corsOptions));
 
