@@ -15,10 +15,27 @@ app.use(cors({
 // app.use(express.json({ limit: "50mb" }));
 // app.use(express.urlencoded({ limit: "50mb", extended: true }));
 app.use(router);
+const uri=process.env.MONGO_DB_CONNECTION;
+class Database {
+  constructor() {
+    this._connect()
+  }
+_connect() {
+     mongoose.connect(uri,{useNewUrlParser: true,useUnifiedTopology:true })
+       .then(() => {
+         console.log('MongoDB connection successful');
+         app.listen(PORT)
+       })
+       .catch(err => {
+         console.error('Database connection error')
+       })
+  }
+}
+new Database();
 
-app.listen(PORT, () => {
-    console.log(`Listening on port ${PORT}`);
-  });
+// app.listen(PORT, () => {
+//     console.log(`Listening on port ${PORT}`);
+//   });
 
 app.get('/', function (req, res) {
 res.send('Hello World');
