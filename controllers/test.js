@@ -7,4 +7,25 @@ const testConnection = async (req,res)=>{
     res.send(`Password is : ${password}, name is ${username}`);
 }
 
-module.exports=testConnection;
+posts=[
+{   
+    userName:'Kyle',
+    title:'Post 1'
+},
+{
+    userName:'7amo',
+    title:"7amo's post"
+}
+]
+
+
+const getPosts = async (req,res)=>{
+try{
+    res.json(posts.filter(post=> post.userName === req.user.name))
+}catch(err){
+    console.log(err);
+    res.send("Invalid auth token");
+}
+}
+
+module.exports={testConnection,getPosts};
