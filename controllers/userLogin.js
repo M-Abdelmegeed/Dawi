@@ -1,14 +1,25 @@
 require('dotenv').config()
 const mongoose=require('mongoose');
 const jwt = require('jsonwebtoken');
+const User = require('../models/User');
+const bcrypt=require('bcrypt');
 
 
 const userLogin = async (req,res)=>{
     // Authenticate User
-    const userName=req.body.userName;
-    const user = {name:userName};
-    const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
-    res.json({accessToken:accessToken});
+    const email=req.body.email;
+    const password=req.body.password;
+    const person= await User.findOne({email:email}).exec();
+    // console.log(person.password);
+    const match = bcrypt.compareSync(password + process.env.PEPPER, person.password);
+    if(match) {
+        //login
+        const user = {name:person.userName};
+        const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
+        res.json({accessToken:accessToken});
+    }else{
+        res.send("Invalid user credentials!");
+    }
 }
 
 const authenticateToken = (req,res,next)=>{
@@ -24,5 +35,6 @@ const authenticateToken = (req,res,next)=>{
         next();
     })
 }
+
 
 module.exports={userLogin,authenticateToken};
