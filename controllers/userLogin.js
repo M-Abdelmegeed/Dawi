@@ -14,8 +14,8 @@ const userLogin = async (req,res)=>{
     const match = bcrypt.compareSync(password + process.env.PEPPER, person.password);
     if(match) {
         //login
-        const user = {name:person.userName};
-        const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
+        const user = {firstName:person.firstName,email:person.email, id:person._id};
+        const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET,{expiresIn:'15s'});
         res.json({accessToken:accessToken});
     }else{
         res.send("Invalid user credentials!");

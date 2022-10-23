@@ -9,11 +9,11 @@ const testConnection = async (req,res)=>{
 
 posts=[
 {   
-    userName:'Kyle',
-    title:'Post 1'
+    firstName:'Lala',
+    title:"Lala's post"
 },
 {
-    userName:'7amo',
+    firstName:'7amo',
     title:"7amo's post"
 }
 ]
@@ -21,7 +21,7 @@ posts=[
 
 const getPosts = async (req,res)=>{
 try{
-    res.json(posts.filter(post=> post.userName === req.user.name))
+    res.json(posts.filter(post=> post.firstName === req.user.firstName))
 }catch(err){
     console.log(err);
     res.send("Invalid auth token");

@@ -5,11 +5,13 @@ const bcrypt=require('bcrypt')
 const registerUser = async(req,res)=>{
     const body=req.body;
     const newUser = new User({
-        name: body.name,
+        firstName: body.firstName,
+        lastName:body.lastName,
         email: body.email,
         phoneNumber: body.phoneNumber,
         password: body.password,
-        userName:body.userName,
+        role:body.role,
+        image:body.image
     });
 
     bcrypt.hash(
