@@ -13,6 +13,9 @@ app.use(express.json({ limit: "50mb" }));
 app.use(cors({
   origin:"https://agile-final.herokuapp.com/doctor-form"
 }));
+app.use(cors({
+  origin:"https://agile-final.herokuapp.com"
+}));
 // app.use(express.json({ limit: "50mb" }));
 // app.use(express.urlencoded({ limit: "50mb", extended: true }));
 app.use(router);
