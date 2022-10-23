@@ -1,10 +1,12 @@
-
+const User = require('../models/User');
 
 const testConnection = async (req,res)=>{
-    console.log("Request for lala");
-    const username=req.body.userName;
-    const password = req.body.password;
-    res.send(`Password is : ${password}, name is ${username}`);
+    // await User.deleteMany({ firstName: "Lala"});
+    // res.send("Records deleted successfully!");
+    // const firstName=req.body.firstName;
+    // const person= await User.findOne({firstName:firstName}).exec();
+    // console.log(person.image);
+    // res.json(person.image);
 }
 
 posts=[

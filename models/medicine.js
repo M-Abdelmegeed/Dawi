@@ -6,12 +6,20 @@ const medicineSchema = new mongoose.Schema({
         required: true,
     },
     expiryDate: {
-        type: String,
+        type: Date,
         required:true
     },
     image: {
         type: String,
     },
+    timestamp:{
+        type:Date,
+        required:true
+    },
+    pharmacistID:{
+        type:String,
+        required:true
+    }
 });
 
 module.exports = mongoose.model("Medicine", medicineSchema);
