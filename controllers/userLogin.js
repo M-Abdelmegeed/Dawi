@@ -15,7 +15,7 @@ const userLogin = async (req,res)=>{
     if(match) {
         //login
         const user = {firstName:person.firstName,email:person.email, id:person._id};
-        const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET,{expiresIn:'15s'});
+        const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET,{expiresIn:'900s'});
         res.json({accessToken:accessToken});
     }else{
         res.send("Invalid user credentials!");
@@ -24,7 +24,7 @@ const userLogin = async (req,res)=>{
 
 const authenticateToken = (req,res,next)=>{
     const authHeader=req.headers['authorization'];
-    const token = authHeader && authHeader.split(' ')[1];
+    const token = authHeader && authHeader;
     if (token == null) return res.sendStatus(401);
 
     jwt.verify(token, process.env.ACCESS_TOKEN_SECRET,
