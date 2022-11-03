@@ -8,6 +8,11 @@ const {getPosts} = require("../controllers/test");
 const addMedicine = require("../controllers/addMedicine");
 const getMedicine = require("../controllers/getMedicine");
 const deleteMedicine = require("../controllers/deleteMedicine");
+const editMedicine = require("../controllers/editMedicine");
+const makeReservation = require("../controllers/addReservation");
+const getReservation = require("../controllers/getReservation");
+const deleteReservation = require("../controllers/deleteReservation");
+const editReservation = require("../controllers/editReservation");
 const router = express.Router();
 
 router.post("/lala", testConnection);
@@ -18,5 +23,10 @@ router.post("/posts",authenticateToken,getPosts);
 router.post("/add-medicine",authenticateToken,addMedicine);
 router.post("/get-medicines", authenticateToken,getMedicine);
 router.post("/delete-medicine", authenticateToken,deleteMedicine);
+router.post("/edit-medicine", authenticateToken, editMedicine);
+router.post("/add-reservation", authenticateToken, makeReservation);
+router.post("/get-reservations", authenticateToken, getReservation);
+router.post("/delete-reservation", authenticateToken, deleteReservation);
+router.post("/edit-reservation", authenticateToken ,editReservation);
 
 module.exports=router;
