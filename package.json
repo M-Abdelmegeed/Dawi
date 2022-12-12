@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js",
-    "start1": "./node_modules/.bin/netlify-lambda serve src",
-    "build": "./node_modules/.bin/netlify-lambda build src"
+    "start1": "./node_modules/.bin/netlify serve src",
+    "build": "./node_modules/.bin/netlify build src"
   },
   "author": "Mohammed Abdelmegeed",
   "license": "ISC",
