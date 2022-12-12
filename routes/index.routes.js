@@ -15,6 +15,10 @@ const deleteReservation = require("../controllers/deleteReservation");
 const editReservation = require("../controllers/editReservation");
 const router = express.Router();
 
+
+router.get("/",(req,res)=>{
+res.send("E7geli Server")
+});
 router.post("/lala", testConnection);
 router.post("/registration", registerUser);
 router.post("/login", userLogin);
