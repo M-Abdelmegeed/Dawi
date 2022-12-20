@@ -25,7 +25,7 @@ const userLogin = async (req,res)=>{
 const authenticateToken = (req,res,next)=>{
     const authHeader=req.headers['authorization'];
     const token = authHeader && authHeader;
-    if (token == null) return res.sendStatus(401);
+    if (token == null) return res.sendStatus(404);
 
     jwt.verify(token, process.env.ACCESS_TOKEN_SECRET,
         // {expiresIn:'15s'},
