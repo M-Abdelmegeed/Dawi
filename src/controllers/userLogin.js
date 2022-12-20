@@ -16,7 +16,7 @@ const userLogin = async (req,res)=>{
         //login
         const user = {firstName:person.firstName,email:person.email, id:person._id};
         const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET,{expiresIn:'1800s'});
-        res.json({accessToken:accessToken});
+        res.json({accessToken:accessToken,role:person.role});
     }else{
         res.send("Invalid user credentials!");
     }
