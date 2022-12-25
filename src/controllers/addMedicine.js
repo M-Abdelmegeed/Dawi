@@ -7,7 +7,7 @@ const addMedicine = async (req,res)=>{
     const newMedicine = new Medicine({
         name: body.name,
         expiryDate:body.expiryDate,
-        image:body.image,
+        // image:body.image,
         timestamp:new Date(),
         pharmacistID:req.user.id
     });
