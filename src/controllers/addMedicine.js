@@ -14,5 +14,6 @@ const addMedicine = async (req,res)=>{
     await newMedicine.save();
     res.send("New medicine added successfully!");
 }
+// Kimos comment
 
 module.exports=addMedicine;
