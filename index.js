@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 8080;
 app.use(express.json({ limit: "50mb" }));
 app.use(cors({
   origin:["https://agile-final.netlify.app/doctor-form","https://agile-final.netlify.app"
-  ,"https://agile-final.netlify.app/login, https://agile-final.netlify.app/home-page"]
+  ,"https://agile-final.netlify.app/login, https://agile-final.netlify.app/home-page, http://127.0.0.1:5500/index.html"]
 }));
 // app.use(express.json({ limit: "50mb" }));
 // app.use(express.urlencoded({ limit: "50mb", extended: true }))
