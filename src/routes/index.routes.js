@@ -26,7 +26,7 @@ router.post("/login", userLogin);
 router.post("/posts",authenticateToken,getPosts);
 // router.delete("/logout", userLogout);
 router.post("/add-medicine",authenticateToken,addMedicine);
-router.post("/add-medicine-2", authenticateToken, addMedicine2)
+router.post("/add-medicine-2", authenticateToken, addMedicine2);
 router.post("/get-medicines", authenticateToken,getMedicine);
 router.post("/delete-medicine", authenticateToken,deleteMedicine);
 router.post("/edit-medicine", authenticateToken, editMedicine);
