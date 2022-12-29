@@ -30,7 +30,7 @@ router.post("/add-medicine-2", authenticateToken, addMedicine2);
 router.post("/get-medicines", authenticateToken,getMedicine);
 router.post("/delete-medicine", authenticateToken,deleteMedicine);
 router.post("/edit-medicine", authenticateToken, editMedicine);
-router.post("/add-reservation", authenticateToken, makeReservation);
+router.post("/add-reservation", makeReservation);
 router.post("/get-reservations", authenticateToken, getReservation);
 router.post("/delete-reservation", authenticateToken, deleteReservation);
 router.post("/edit-reservation", authenticateToken ,editReservation);
