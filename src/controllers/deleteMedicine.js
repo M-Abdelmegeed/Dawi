@@ -1,14 +1,14 @@
-const medicine = require("../models/medicine");
+const Medicine = require("../models/medicine");
 
 
 const deleteMedicine = async(req,res)=>{
-// const userID=req.user.id;
-// const medicineName=req.body.medicineName;
 const id=req.body.id;
-medicine.deleteOne({ _id: id}, function (err) {
+const pharmacistID=req.body.pharmacistID;
+Medicine.deleteOne({ _id: id}, function (err) {
     if (err) return handleError(err);
-    res.send("Medicine deleted successfully!");
   });
+  const medicines = await Medicine.find({ pharmacistID: pharmacistID }).exec();
+  res.json(medicines);
 }
 
 module.exports=deleteMedicine;

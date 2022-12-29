@@ -28,11 +28,11 @@ router.post("/posts",authenticateToken,getPosts);
 router.post("/add-medicine",authenticateToken,addMedicine);
 router.post("/add-medicine-2", addMedicine2);
 router.post("/get-medicines", authenticateToken,getMedicine);
-router.post("/delete-medicine", authenticateToken,deleteMedicine);
+router.post("/delete-medicine",deleteMedicine);
 router.post("/edit-medicine", editMedicine);
 router.post("/add-reservation", makeReservation);
 router.post("/get-reservations", authenticateToken, getReservation);
-router.post("/delete-reservation", authenticateToken, deleteReservation);
+router.post("/delete-reservation", deleteReservation);
 router.post("/edit-reservation" ,editReservation);
 
 module.exports=router;
