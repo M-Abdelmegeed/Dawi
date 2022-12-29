@@ -7,8 +7,8 @@ const makeReservation = async (req,res)=>{
         specialty: body.specialty,
         dateAndTime:body.dateAndTime,
         timestamp:new Date(),
-        doctorID:req.body.id,
-        doctorName:req.body.firstName,
+        doctorID:req.body.doctorID,
+        doctorName:req.body.doctorName,
     });
     await newReservation.save();
     res.send("Slot added successfully");
