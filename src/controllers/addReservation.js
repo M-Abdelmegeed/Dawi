@@ -7,12 +7,13 @@ const makeReservation = async (req,res)=>{
         specialty: body.specialty,
         dateAndTime:body.dateAndTime,
         timestamp:new Date(),
-        doctorID:req.body.doctorID,
-        doctorName:req.body.doctorName,
+        doctorID:body.doctorID,
+        doctorName:body.doctorName,
     });
     await newReservation.save();
-    res.send("Slot added successfully");
-
+    const reservations = await Reservation.find({ doctorID:doctorID }).exec();
+    res.json(reservations);
+    // res.send("Slot added successfully");
 }
 
 module.exports=makeReservation;
