@@ -9,7 +9,7 @@ const addMedicine2 = async (req,res)=>{
         name: body.name,
         expiryDate:body.expiryDate,
         timestamp:new Date(),
-        pharmacistID:req.user.id
+        pharmacistID:body.id
     });
     await newMedicine.save();
     const medicines = await Medicine.find({ pharmacistID: userID }).exec();

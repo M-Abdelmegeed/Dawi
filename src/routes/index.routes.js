@@ -18,7 +18,7 @@ const router = express.Router();
 
 
 router.get("/",(req,res)=>{
-res.send("E7geli Server")
+res.send("Welcome to Dawi's Web-Server Page")
 });
 router.post("/lala", testConnection);
 router.post("/registration", registerUser);
@@ -26,13 +26,13 @@ router.post("/login", userLogin);
 router.post("/posts",authenticateToken,getPosts);
 // router.delete("/logout", userLogout);
 router.post("/add-medicine",authenticateToken,addMedicine);
-router.post("/add-medicine-2", authenticateToken, addMedicine2);
+router.post("/add-medicine-2", addMedicine2);
 router.post("/get-medicines", authenticateToken,getMedicine);
 router.post("/delete-medicine", authenticateToken,deleteMedicine);
-router.post("/edit-medicine", authenticateToken, editMedicine);
+router.post("/edit-medicine", editMedicine);
 router.post("/add-reservation", makeReservation);
 router.post("/get-reservations", authenticateToken, getReservation);
 router.post("/delete-reservation", authenticateToken, deleteReservation);
-router.post("/edit-reservation", authenticateToken ,editReservation);
+router.post("/edit-reservation" ,editReservation);
 
 module.exports=router;
