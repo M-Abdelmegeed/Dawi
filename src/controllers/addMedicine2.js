@@ -3,7 +3,7 @@ const Medicine=require('../models/medicine');
 
 const addMedicine2 = async (req,res)=>{
     console.log(req.user);
-    const userID=req.user.id;
+    const userID=req.body.id;
     const body=req.body;
     const newMedicine = new Medicine({
         name: body.name,
