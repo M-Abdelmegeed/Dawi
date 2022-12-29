@@ -10,6 +10,7 @@ const makeReservation = async (req,res)=>{
         doctorID:body.doctorID,
         doctorName:body.doctorName,
     });
+    const doctorID=body.doctorID;
     await newReservation.save();
     const reservations = await Reservation.find({ doctorID:doctorID }).exec();
     res.json(reservations);
