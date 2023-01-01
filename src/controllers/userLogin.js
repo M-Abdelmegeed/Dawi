@@ -11,6 +11,7 @@ const userLogin = async (req,res)=>{
     const password=req.body.password;
     const person= await User.findOne({email:email}).exec();
     // console.log(person.password);
+    // Encrypted passwords
     const match = bcrypt.compareSync(password + process.env.PEPPER, person.password);
     if(match) {
         //login
