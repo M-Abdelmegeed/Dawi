@@ -1,3 +1,4 @@
+// Add medicine controller
 require("dotenv").config();
 const Medicine=require('../models/medicine');
 
@@ -16,6 +17,5 @@ const addMedicine2 = async (req,res)=>{
     res.json(medicines);
     // res.send("New medicine added successfully!");
 }
-// Kimos comment
 
 module.exports=addMedicine2;
