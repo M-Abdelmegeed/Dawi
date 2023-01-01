@@ -1,3 +1,4 @@
+// Update pharmacist medicines
 const Medicine=require('../models/medicine');
 
 const editMedicine = async (req,res)=>{
